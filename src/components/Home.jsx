@@ -1,12 +1,12 @@
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { Swiper, SwiperSlide } from "swiper/react";
-import SwiperCore, { Navigation } from "swiper";
+import SwiperCore, { Navigation, Autoplay } from "swiper";
 import "swiper/swiper.min.css";
 import HomeCard from "./sharedComponents/HomeCard";
 import Button from "./sharedComponents/Button";
 
 const Home = () => {
-  SwiperCore.use([Navigation]);
+  SwiperCore.use([Navigation, Autoplay]);
 
   return (
     <div className="relative lg:bg-none bg-homeImage bg-no-repeat bg-center bg-cover  w-full bg-white px-7 md:px-14 overflow-hidden">
@@ -27,7 +27,11 @@ const Home = () => {
           <Swiper
             spaceBetween={100}
             slidesPerView={1}
-            speed={700}
+            autoplay={{
+              delay: "800",
+              // disableOnInteraction: false,
+            }}
+            speed={900}
             effect="cube"
             navigation={{
               prevEl: ".prev",

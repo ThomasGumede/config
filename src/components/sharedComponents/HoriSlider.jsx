@@ -1,11 +1,12 @@
 import { BsArrowLeft, BsArrowRight } from "react-icons/bs";
 import { Swiper } from "swiper/react";
-import SwiperCore, { Navigation } from "swiper";
+import SwiperCore, { Navigation, Autoplay  } from "swiper";
 import "swiper/swiper.min.css";
-// import Button from "./Button";
+
 
 const HoriSlider = ({ title, children }) => {
-  SwiperCore.use([Navigation]);
+  SwiperCore.use([Navigation, Autoplay]);
+
 
   return (
     <div className="text-center space-y-6 w-full">
@@ -23,9 +24,12 @@ const HoriSlider = ({ title, children }) => {
       </div>
 
       <Swiper
-        
         slidesPerView={1}
         speed={800}
+        autoplay={{
+          delay: "1000",
+          // disableOnInteraction: false,
+        }}
         navigation={{
           prevEl: ".prev",
           nextEl: ".next",
@@ -42,12 +46,12 @@ const HoriSlider = ({ title, children }) => {
 
           1000: {
             slidesPerView: 2.5,
-            spaceBetween: 100
+            spaceBetween: 100,
           },
 
           1200: {
             slidesPerView: 3.3,
-            spaceBetween: 100
+            spaceBetween: 100,
           },
 
           1400: {
